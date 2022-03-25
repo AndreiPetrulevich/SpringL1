@@ -35,6 +35,8 @@ public class MessageSupportFactory {
             messageRender = (MessageRender) Class.forName(renderClass).newInstance();
             messageProvider = (MessageProvider) Class.forName(providerClass).newInstance();
 
+            messageRender.setMessageProvider(messageProvider); //dependency injection
+
         } catch (Exception e) {
             e.printStackTrace();
         }
