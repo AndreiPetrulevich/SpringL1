@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- bean definitions here -->
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> 
+    Отвечает за считывание PostConstruct & PreDestroy ИЛИ можно сделать сканер аннотаций @Component-->
+    
+    <context:component-scan base-package="ru.gb"/> <!--автоматом добавит стандартные beanPostProcessors из Spring-->
+
     <bean class="ru.gb.WantMessageProvider" id="provider"/>
 
     <bean class="ru.gb.ConsoleMessageRender" id="render">
@@ -12,5 +17,5 @@
         <constructor-arg name="messageProvider" ref="provider"/> <!--можно подставлять через конструктор-->
     </bean>
 
-    <bean class="ru.gb.InjectFoodStuffAnnotationBeanPostProcessor" id="injection"/>
+    <!--<bean class="ru.gb.InjectFoodStuffAnnotationBeanPostProcessor" id="injection"/>-->
 </beans>
