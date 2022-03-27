@@ -4,6 +4,10 @@ public class ConsoleMessageRender implements MessageRender {
 
     private MessageProvider messageProvider;
 
+    public ConsoleMessageRender(MessageProvider messageProvider) {
+        this.messageProvider = messageProvider;
+    }
+
     @Override
     public void render() {
         System.out.println(messageProvider.getMessage());

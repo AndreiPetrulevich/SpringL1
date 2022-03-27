@@ -1,12 +1,12 @@
 package ru.gb;
 
-public class LikeMessageProvider implements MessageProvider {
+public class WantMessageProvider implements MessageProvider {
 
     @InjectFoodStuff
     String foodStuff;
 
     @Override
     public String getMessage() {
-        return "I like " + foodStuff;
+        return "I want " + foodStuff;
     }
 }
